@@ -37,7 +37,7 @@
 - **model**: Representação das entidades.
 - **dto**: Transferência de dados entre camadas.
 - **config**: Configurações da aplicação.
-
+- **exception**: Tratamento centralizado de erros e exceções.
 ## Fluxo Completo
 
 1. O usuário faz login com e-mail e senha.
