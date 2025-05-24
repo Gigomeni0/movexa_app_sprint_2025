@@ -1,0 +1,9 @@
+2025-05-24 15:31:38.791627-03:00 jdbc[24]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT *[*]USUARIO"; SQL statement:
+SELECT *USUARIO [42000-232]
+2025-05-24 15:31:41.075650-03:00 jdbc[24]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT *[*]USUARIO"; SQL statement:
+SELECT *USUARIO [42000-232]
+2025-05-24 15:31:49.638404-03:00 jdbc[24]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]USUARIO"; expected "UPDATE"; SQL statement:
+USUARIO [42001-232]
