@@ -1,9 +1,11 @@
 package com.movexa.api.service;
 
+import com.movexa.api.dto.UsuarioDTO;
 import com.movexa.api.model.Usuario;
 import com.movexa.api.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder; // Importa a classe BCryptPasswordEncoder para criptografar senhas
 
 import java.util.Optional;
 
@@ -13,9 +15,22 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    // Cria um novo usuário
-    public Usuario criarUsuario(Usuario usuario) {
-        // Você pode adicionar validações ou lógica adicional aqui
+    public Usuario criarUsuario(UsuarioDTO dto) {
+        // Verifica se o e-mail já existe
+        if (usuarioRepository.existsByEmail(dto.getEmail())) {
+            throw new IllegalArgumentException("E-mail já cadastrado.");
+        }
+
+        // Converte DTO para entidade
+        Usuario usuario = new Usuario();
+        usuario.setEmail(dto.getEmail());
+        usuario.setPapel(dto.getPapel());
+
+        // Criptografa a senha
+        String senhaCriptografada = new BCryptPasswordEncoder().encode(dto.getSenha());
+        usuario.setSenhaHash(senhaCriptografada);
+
+        // Salva no banco
         return usuarioRepository.save(usuario);
     }
 
