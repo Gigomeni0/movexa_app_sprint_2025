@@ -1,7 +1,3 @@
-Segue um README atualizado, detalhando endpoints, exemplos de uso, entidades e instruções para desenvolvedores frontend integrarem com a API.
-
----
-
 # API Movexa
 
 API REST para gerenciamento de usuários, robôs AGV e ordens de coleta.
